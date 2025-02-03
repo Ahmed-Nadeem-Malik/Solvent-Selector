@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solvent Selector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Solvent Selector for Organic Reactions</h1>
+        <div class="card">
+            <form action="/results" method="post">
+                <div class="form-group">
+                    <label for="reaction">Select Reaction Type:</label>
+                    <select id="reaction" name="reaction" required>
+                        <option value="">Choose a reaction...</option>
+                        {% for reaction in reactions %}
+                            <option value="{{ reaction }}">{{ reaction }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <button type="submit">Find Suitable Solvents</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

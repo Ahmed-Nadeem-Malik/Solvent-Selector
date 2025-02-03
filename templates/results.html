@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Solvent Selector Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Recommended Solvents</h1>
+        <div class="card">
+            <h2>{{ reaction }}</h2>
+            {% if solvents %}
+                <div class="solvent-grid">
+                    {% for solvent in solvents %}
+                        <div class="solvent-card">
+                            <h3>{{ solvent.name }}</h3>
+                            {% if solvent.structure %}
+                                <img src="data:image/png;base64,{{ solvent.structure }}" 
+                                     alt="{{ solvent.name }} structure" 
+                                     class="molecule-structure">
+                            {% endif %}
+                            <table class="properties-table">
+                                <tr>
+                                    <th>Typical Yield:</th>
+                                    <td>{{ solvent.yield }}</td>
+                                </tr>
+                                <tr>
+                                    <th>SMILES:</th>
+                                    <td><code>{{ solvent.smiles }}</code></td>
+                                </tr>
+                            </table>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% else %}
+                <p class="no-results">No solvents found for this reaction type.</p>
+            {% endif %}
+            <a href="/" class="back-button">Back to Search</a>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
