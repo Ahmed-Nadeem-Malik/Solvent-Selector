@@ -1,4 +1,4 @@
-from flask import Flask, request, render_template
+from flask import Flask, request, render_template, jsonify
 from rdkit import Chem
 from rdkit.Chem import Draw
 import base64
@@ -91,6 +91,75 @@ def results():
                          reaction=reaction, 
                          solvents=recommended_solvents)
 
+# RESTful API endpoints
+@app.route('/api/reactions', methods=['GET'])
+def get_reactions():
+    """List all reactions"""
+    return jsonify({
+        'reactions': list(solvents.keys())
+    })
+
+@app.route('/api/reactions/<reaction>', methods=['GET'])
+def get_reaction(reaction):
+    """Get a specific reaction and its solvents"""
+    if reaction not in solvents:
+        return jsonify({'error': 'Reaction not found'}), 404
+    return jsonify({
+        'reaction': reaction,
+        'solvents': solvents[reaction]
+    })
+
+@app.route('/api/reactions', methods=['POST'])
+def create_reaction():
+    """Create a new reaction"""
+    data = request.get_json()
+    reaction_name = data.get('reaction')
+    reaction_solvents = data.get('solvents')
+    
+    if not reaction_name or not reaction_solvents:
+        return jsonify({'error': 'Missing required fields'}), 400
+    
+    if reaction_name in solvents:
+        return jsonify({'error': 'Reaction already exists'}), 409
+        
+    solvents[reaction_name] = reaction_solvents
+    return jsonify({
+        'message': 'Reaction created',
+        'reaction': reaction_name
+    }), 201
+
+@app.route('/api/reactions/<reaction>', methods=['PUT'])
+def update_reaction(reaction):
+    """Update a reaction's solvents"""
+    if reaction not in solvents:
+        return jsonify({'error': 'Reaction not found'}), 404
+        
+    data = request.get_json()
+    new_solvents = data.get('solvents')
+    
+    if not new_solvents:
+        return jsonify({'error': 'Missing solvents data'}), 400
+        
+    solvents[reaction] = new_solvents
+    return jsonify({
+        'message': 'Reaction updated',
+        'reaction': reaction
+    })
+
+@app.route('/api/reactions/<reaction>', methods=['DELETE'])
+def delete_reaction(reaction):
+    """Delete a reaction"""
+    if reaction not in solvents:
+        return jsonify({'error': 'Reaction not found'}), 404
+        
+    del solvents[reaction]
+    return jsonify({
+        'message': 'Reaction deleted',
+        'reaction': reaction
+    })
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+
 
