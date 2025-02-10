@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solvent Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Solvents for {{ reaction.name }}</h1>
+            <a href="{{ url_for('new_solvent') }}" class="button">Add New Solvent</a>
+        </div>
+        
+        <div class="solvents-list">
+            {% for solvent in solvents %}
+                <div class="solvent-card">
+                    <h2>{{ solvent.name }}</h2>
+                    <div class="yield-badge">Yield: {{ solvent.yield_range }}</div>
+                    <div class="molecule-container">
+                        <img src="data:image/png;base64,{{ solvent.structure }}" alt="{{ solvent.name }}">
+                    </div>
+                    <div class="button-group">
+                        <a href="{{ url_for('edit_solvent', id=solvent.id) }}" class="button">Edit</a>
+                        <a href="{{ url_for('delete_solvent', id=solvent.id) }}" class="button delete" onclick="return confirm('Are you sure?')">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        
+        <a href="{{ url_for('index') }}" class="button">Back to Reactions</a>
+    </div>
+</body>
+</html>
+
+

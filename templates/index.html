@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Solvent Selector</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>Chemical Reaction Solvent Guide</h1>
+            <a href="{{ url_for('new_reaction') }}" class="button">Add New Reaction</a>
+        </div>
+        
+        <div class="reactions-list">
+            {% for reaction in reactions %}
+                <div class="reaction-card">
+                    <h2>{{ reaction.name }}</h2>
+                    <div class="button-group">
+                        <a href="{{ url_for('reaction_solvents', id=reaction.id) }}" class="button">View Solvents</a>
+                        <a href="{{ url_for('edit_reaction', id=reaction.id) }}" class="button">Edit</a>
+                        <a href="{{ url_for('delete_reaction', id=reaction.id) }}" class="button delete" onclick="return confirm('Are you sure?')">Delete</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
