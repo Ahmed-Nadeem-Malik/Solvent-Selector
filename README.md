@@ -1,7 +1,6 @@
 # Solvent Selector
 
-This is a flask CRUD web app that lets the user see different solvents using diffrent reactions. Flask to make the web app, rdkit to make the molecular structure of the solvents, SQLite/sqlalchemy to store reactions and solvents in a database and HTML/CSS for styling.
-
+This is a flask CRUD web app that lets the user see different solvents using different reactions. Flask will make the web app, rdkit will make the molecular structure of the solvents, SQLite/SQLalchemy will store different reactions and solvents in a database, and HTML/CSS will be used for styling. I started this project as I recently finished learning about databases in my course and also saw an internship that piqued my interest in combining CS and chemistry into cheminformatics so I made a small web app as a small proof of concept just to see if I am capable of doing an internship as a first year.
 ## Prerequisites
 
 - Python 3.x
@@ -55,5 +54,3 @@ This is a flask CRUD web app that lets the user see different solvents using dif
     ```
 
 7. Open your web browser and go to `http://127.0.0.1:5000` to view the application.
-
-## Directory Structure
