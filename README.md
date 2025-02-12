@@ -23,17 +23,17 @@ This is a flask CRUD web app that lets the user see different solvents using dif
 
 3. Activate the virtual environment:
 
-    - On Windows:
+    On Windows:
 
-        ```sh
-        venv\Scripts\activate
-        ```
+   ```sh
+   venv\Scripts\activate
+   ```
 
-    - On macOS/Linux:
+   On macOS/Linux:
 
-        ```sh
-        source venv/bin/activate
-        ```
+   ```sh
+   source venv/bin/activate
+   ```
 
 4. Install the required packages:
 
