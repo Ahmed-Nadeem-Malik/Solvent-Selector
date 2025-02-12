@@ -11,7 +11,7 @@ This is a flask CRUD web app that lets the user see different solvents using dif
 1. Clone the repository:
 
     ```sh
-    git clone https://github.com/Ahmed-Nadeem-Malik/Solvent-Selector.git
+    git clone https://github.com/Username/Solvent-Selector.git
     cd solvent-selector
     ```
 
@@ -54,3 +54,5 @@ This is a flask CRUD web app that lets the user see different solvents using dif
     ```
 
 7. Open your web browser and go to `http://127.0.0.1:5000` to view the application.
+
+Please let me know if you have any recommendations to make this better, I just want to improve as a programmer :)
