@@ -20,27 +20,27 @@ git clone https://github.com/Ahmed-Nadeem-Malik/Solvent-Selector.git
 cd Solvent-Selector
 
 Create a new virtual environment:
-
+```bash
 python3 -m venv venv
 
 Then activate it:
 
     On macOS/Linux:
-
+```bash
 source venv/bin/activate
 
 On Windows:
-
+```bash
     venv\Scripts\activate
 
 3. Install Dependencies
 
 Install all required Python packages:
-
+```bash
 pip install -r requirements.txt
 
     Note: If you need RDKit and it is not installed via pip on your platform, it is recommended to use conda. For example:
-
+```bash
     conda create -n solvent_selector python=3.x rdkit -c rdkit
     conda activate solvent_selector
     pip install -r requirements.txt
@@ -48,7 +48,7 @@ pip install -r requirements.txt
 4. Set Up the Database
 
 This project uses SQLite with SQLAlchemy and Flask‑Migrate. Initialize (or upgrade) your database by running:
-
+```bash
 flask db upgrade
 
 (If you haven’t set any migration directory before, you might need to initialize it first with flask db init—however, the repository already contains a migrations folder.)
@@ -57,12 +57,12 @@ flask db upgrade
 To use Flask’s CLI for running the app, set the following environment variables:
 
     On macOS/Linux:
-
+```bash
 export FLASK_APP=app.py
 export FLASK_ENV=development
 
 On Windows (cmd):
-
+```bash
     set FLASK_APP=app.py
     set FLASK_ENV=development
 
@@ -71,17 +71,17 @@ On Windows (cmd):
 You have two options:
 
     Option A: Using the Flask CLI:
-
+```bash
 flask run
 
 Option B: Running the app directly:
-
+```bash
     python app.py
 
 7. Access the Web App
 
 Open your web browser and navigate to:
-
+```bash
 http://127.0.0.1:5000/
 
 
