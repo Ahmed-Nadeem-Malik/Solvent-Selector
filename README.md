@@ -9,79 +9,81 @@ This is a flask CRUD web app that lets the user see different solvents using dif
 4. **RDKit** – This project uses RDKit to render molecular structures. Because RDKit is not available via pip on every platform, it is recommended to install it via conda (see note below).
 
 ---
+Setup and Running Instructions
 
-# Setup and Running Instructions
-
-## 1. Clone the Repository
+1. Clone the Repository
 
 Open your terminal and clone the repository:
-```bash
+
 git clone https://github.com/Ahmed-Nadeem-Malik/Solvent-Selector.git
 cd Solvent-Selector
 
+2. Create a Virtual Environment
+
 Create a new virtual environment:
-```bash
+
 python3 -m venv venv
 
 Then activate it:
 
-    On macOS/Linux:
-```bash
+On macOS/Linux:
+
 source venv/bin/activate
 
 On Windows:
-```bash
-    venv\Scripts\activate
+
+venv\Scripts\activate
 
 3. Install Dependencies
 
 Install all required Python packages:
-```bash
+
 pip install -r requirements.txt
 
-    Note: If you need RDKit and it is not installed via pip on your platform, it is recommended to use conda. For example:
-```bash
-    conda create -n solvent_selector python=3.x rdkit -c rdkit
-    conda activate solvent_selector
-    pip install -r requirements.txt
+Note: If you need RDKit and it is not installed via pip on your platform, it is recommended to use Conda. For example:
+
+conda create -n solvent_selector python=3.x rdkit -c rdkit
+conda activate solvent_selector
+pip install -r requirements.txt
 
 4. Set Up the Database
 
-This project uses SQLite with SQLAlchemy and Flask‑Migrate. Initialize (or upgrade) your database by running:
-```bash
+This project uses SQLite with SQLAlchemy and Flask-Migrate. Initialize (or upgrade) your database by running:
+
 flask db upgrade
 
 (If you haven’t set any migration directory before, you might need to initialize it first with flask db init—however, the repository already contains a migrations folder.)
+
 5. Set Environment Variables (Optional)
 
 To use Flask’s CLI for running the app, set the following environment variables:
 
-    On macOS/Linux:
-```bash
+On macOS/Linux:
+
 export FLASK_APP=app.py
 export FLASK_ENV=development
 
 On Windows (cmd):
-```bash
-    set FLASK_APP=app.py
-    set FLASK_ENV=development
+
+set FLASK_APP=app.py
+set FLASK_ENV=development
 
 6. Run the Application
 
 You have two options:
 
-    Option A: Using the Flask CLI:
-```bash
+Option A: Using the Flask CLI
+
 flask run
 
-Option B: Running the app directly:
-```bash
-    python app.py
+Option B: Running the App Directly
+
+python app.py
 
 7. Access the Web App
 
 Open your web browser and navigate to:
-```bash
+
 http://127.0.0.1:5000/
 
 
