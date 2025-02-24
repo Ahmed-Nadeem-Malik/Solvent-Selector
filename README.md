@@ -11,80 +11,80 @@ This is a flask CRUD web app that lets the user see different solvents using dif
 ---
 Setup and Running Instructions
 
-1. Clone the Repository
+1. Clone the Repository:
 
-Open your terminal and clone the repository:
-   ```bash
-    git clone https://github.com/Ahmed-Nadeem-Malik/Solvent-Selector.git
-    cd Solvent-Selector
+   Open your terminal and clone the repository:
+      ```bash
+       git clone https://github.com/Ahmed-Nadeem-Malik/Solvent-Selector.git
+       cd Solvent-Selector
 
-2. Create a Virtual Environment
+2. Create a Virtual Environment:
 
-Create a new virtual environment:
-   ```bash
-    python3 -m venv venv
+   Create a new virtual environment:
+      ```bash
+       python3 -m venv venv
+   
+   Then activate it:
+   
+   On macOS/Linux:
+      ```bash
+       source venv/bin/activate
+   
+   On Windows:
+      ```bash
+       venv\Scripts\activate
 
-Then activate it:
+3. Install Dependencies:
+   
+   Install all required Python packages:
+      ```bash
+       pip install -r requirements.txt
+   
+   Note: If you need RDKit and it is not installed via pip on your platform, it is recommended to use Conda. For example:
+      ```bash
+       conda create -n solvent_selector python=3.x rdkit -c rdkit
+       conda activate solvent_selector
+       pip install -r requirements.txt
 
-On macOS/Linux:
-   ```bash
-    source venv/bin/activate
+4. Set Up the Database:
+   
+   This project uses SQLite with SQLAlchemy and Flask-Migrate. Initialize (or upgrade) your database by running:
+      ```bash
+     flask db upgrade
+   
+   (If you haven’t set any migration directory before, you might need to initialize it first with flask db init—however, the repository already contains a migrations folder.)
 
-On Windows:
-   ```bash
-    venv\Scripts\activate
+5. Set Environment Variables (Optional):
 
-3. Install Dependencies
+   To use Flask’s CLI for running the app, set the following environment variables:
+   
+   On macOS/Linux:
+      ```bash
+       export FLASK_APP=app.py
+       export FLASK_ENV=development
+   
+   On Windows (cmd):
+      ```bash
+       set FLASK_APP=app.py
+       set FLASK_ENV=development
 
-Install all required Python packages:
-   ```bash
-    pip install -r requirements.txt
+6. Run the Application:
+   
+   You have two options:
+   
+   Option A: Using the Flask CLI
+      ```bash
+     flask run
+   
+   Option B: Running the App Directly
+      ```bash
+     python app.py
 
-Note: If you need RDKit and it is not installed via pip on your platform, it is recommended to use Conda. For example:
-   ```bash
-    conda create -n solvent_selector python=3.x rdkit -c rdkit
-    conda activate solvent_selector
-    pip install -r requirements.txt
+7. Access the Web App:
 
-4. Set Up the Database
-
-This project uses SQLite with SQLAlchemy and Flask-Migrate. Initialize (or upgrade) your database by running:
-   ```bash
-  flask db upgrade
-
-(If you haven’t set any migration directory before, you might need to initialize it first with flask db init—however, the repository already contains a migrations folder.)
-
-5. Set Environment Variables (Optional)
-
-To use Flask’s CLI for running the app, set the following environment variables:
-
-On macOS/Linux:
-   ```bash
-    export FLASK_APP=app.py
-    export FLASK_ENV=development
-
-On Windows (cmd):
-   ```bash
-    set FLASK_APP=app.py
-    set FLASK_ENV=development
-
-6. Run the Application
-
-You have two options:
-
-Option A: Using the Flask CLI
-   ```bash
-  flask run
-
-Option B: Running the App Directly
-   ```bash
-  python app.py
-
-7. Access the Web App
-
-Open your web browser and navigate to:
-   ```bash
- http://127.0.0.1:5000/
+   Open your web browser and navigate to:
+      ```bash
+    http://127.0.0.1:5000/
 
 
 Please let me know if you have any recommendations to make this better, I just want to improve as a programmer :)
