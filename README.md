@@ -14,43 +14,43 @@ Setup and Running Instructions
 1. Clone the Repository
 
 Open your terminal and clone the repository:
-
-git clone https://github.com/Ahmed-Nadeem-Malik/Solvent-Selector.git
-cd Solvent-Selector
+   ```bash
+    git clone https://github.com/Ahmed-Nadeem-Malik/Solvent-Selector.git
+    cd Solvent-Selector
 
 2. Create a Virtual Environment
 
 Create a new virtual environment:
-
-python3 -m venv venv
+   ```bash
+    python3 -m venv venv
 
 Then activate it:
 
 On macOS/Linux:
-
-source venv/bin/activate
+   ```bash
+    source venv/bin/activate
 
 On Windows:
-
-venv\Scripts\activate
+   ```bash
+    venv\Scripts\activate
 
 3. Install Dependencies
 
 Install all required Python packages:
-
-pip install -r requirements.txt
+   ```bash
+    pip install -r requirements.txt
 
 Note: If you need RDKit and it is not installed via pip on your platform, it is recommended to use Conda. For example:
-
-conda create -n solvent_selector python=3.x rdkit -c rdkit
-conda activate solvent_selector
-pip install -r requirements.txt
+   ```bash
+    conda create -n solvent_selector python=3.x rdkit -c rdkit
+    conda activate solvent_selector
+    pip install -r requirements.txt
 
 4. Set Up the Database
 
 This project uses SQLite with SQLAlchemy and Flask-Migrate. Initialize (or upgrade) your database by running:
-
-flask db upgrade
+   ```bash
+  flask db upgrade
 
 (If you haven’t set any migration directory before, you might need to initialize it first with flask db init—however, the repository already contains a migrations folder.)
 
@@ -59,32 +59,32 @@ flask db upgrade
 To use Flask’s CLI for running the app, set the following environment variables:
 
 On macOS/Linux:
-
-export FLASK_APP=app.py
-export FLASK_ENV=development
+   ```bash
+    export FLASK_APP=app.py
+    export FLASK_ENV=development
 
 On Windows (cmd):
-
-set FLASK_APP=app.py
-set FLASK_ENV=development
+   ```bash
+    set FLASK_APP=app.py
+    set FLASK_ENV=development
 
 6. Run the Application
 
 You have two options:
 
 Option A: Using the Flask CLI
-
-flask run
+   ```bash
+  flask run
 
 Option B: Running the App Directly
-
-python app.py
+   ```bash
+  python app.py
 
 7. Access the Web App
 
 Open your web browser and navigate to:
-
-http://127.0.0.1:5000/
+   ```bash
+ http://127.0.0.1:5000/
 
 
 Please let me know if you have any recommendations to make this better, I just want to improve as a programmer :)
